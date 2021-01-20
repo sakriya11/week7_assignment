@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".StudentAdd">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Student Details"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="85dp"
+            />
+
+        <EditText
+            android:id="@+id/etFname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:hint="Enter full name"
+            />
+
+
+        <EditText
+            android:id="@+id/etAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:hint="Enter your Age"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:text="Select gender"
+            android:textStyle="bold"
+            />
+
+        <RadioGroup
+            android:id="@+id/rgBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp">
+
+            <RadioButton
+                android:id="@+id/rbMale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                />
+
+            <RadioButton
+                android:id="@+id/rbFemale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                />
+
+            <RadioButton
+                android:id="@+id/rbOthers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Other"
+                />
+
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/etAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Address"/>
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="save"
+            android:layout_margin="5dp"/>
+
+
+    </LinearLayout>
+
+</ScrollView>
