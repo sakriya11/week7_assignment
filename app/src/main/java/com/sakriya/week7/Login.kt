@@ -23,17 +23,19 @@ class Login : AppCompatActivity() {
         btnRegister = findViewById(R.id.btnRegister)
 
         btnRegister.setOnClickListener {
+
             val intent = Intent(this, Registration::class.java)
+
             startActivity(intent)
         }
 
         btnLogin.setOnClickListener {
-            val userData = getLogin(etUser.text.toString(), etPass.text.toString())
-            if (userData.userName != "") {
+
+
                 val intent = Intent(this, MainActivity::class.java)
-//                intent.putExtra("data", userData)
+
                 startActivity(intent)
-            }
+
         }
 
     }

@@ -15,11 +15,11 @@ class Display : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_display)
 
-        recyclerView = findViewById(R.id.recyclerView)
-//        loadStudents()
-        val adapter = StudentAdapter(lstStudent, this)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = adapter
+//        recyclerView = findViewById(R.id.recyclerView)
+////        loadStudents()
+//        val adapter = StudentAdapter(lstStudent, this)
+//        recyclerView.layoutManager = LinearLayoutManager(this)
+//        recyclerView.adapter = adapter
     }
 
 //    private fun loadStudents() {

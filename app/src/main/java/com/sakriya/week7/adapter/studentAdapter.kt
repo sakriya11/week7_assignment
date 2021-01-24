@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.sakriya.week7.adapter.Student
 import com.sakriya.week7.model.Student
 
 class StudentAdapter(val lstStudent: ArrayList<Student>,val context: Context) :

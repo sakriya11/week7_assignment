@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioGroup
 import android.widget.Toast
+import com.sakriya.week7.adapter.Student
 import com.sakriya.week7.model.Student
 import com.sakriya.week7.lstStudent
 class StudentAdd : AppCompatActivity() {
@@ -52,10 +53,10 @@ class StudentAdd : AppCompatActivity() {
 
 
         if (checkEmpty()) {
-            val user = etFname.text.toString()
-            val age = etAge.text.toString().toInt()
-            val address = etAddress.text.toString()
-            lstStudent.add(Student(user, age, address))
+//            val user = etFname.text.toString()
+//            val age = etAge.text.toString().toInt()
+//            val address = etAddress.text.toString()
+//            lstStudent.add(Student(user, age, address))
             Toast.makeText(this, "Data is added", Toast.LENGTH_SHORT).show()
         }
 

@@ -6,7 +6,14 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
+import com.sakriya.week7.db.StudentDB
+import com.sakriya.week7.entity.User
+import com.sakriya.week7.entity.user
 import com.sakriya.week7.model.User
+import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers.Main
+import kotlin.coroutines.coroutineContext
 
 
 class Registration : AppCompatActivity() {
@@ -17,7 +24,7 @@ class Registration : AppCompatActivity() {
     private lateinit var etPass2 : EditText
     private lateinit var btnAdd : Button
 
-    private lateinit var userList :ArrayList<User>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
@@ -27,26 +34,42 @@ class Registration : AppCompatActivity() {
         etPassword = findViewById(R.id.etPassword)
         etPass2 = findViewById(R.id.etpass2)
         btnAdd = findViewById(R.id.btnAdd)
-    }
 
-
-    private fun addUser(){
         btnAdd.setOnClickListener {
-            if(checkEmpty() && etPassword==etPass2){
+            if (checkEmpty()){
+                val fname = etName.text.toString()
+                val username = etUserName.text.toString()
+                val password = etPassword.text.toString()
+                val conformPassword = etPass2.text.toString()
 
-            var user = User (etName.text.toString(), etUserName.text.toString(),etPassword.text.toString())
-                userList.add(user)
-                val intent = Intent(this,Login::class.java)
-                intent.putExtra("userList",userList)
-                startActivity(intent)
+                if (password != conformPassword){
+                    etPassword.error = "Password did not match"
+                    etPassword.requestFocus()
+                    return@setOnClickListener
+                }
+                else{
 
-            }else
-                return@setOnClickListener
+                    val user = User (fullName,Username,Password)
+                    CoroutineScope() {Dispatchers.IO}.launch{
+
+                        StudentDB.getInstance(this@Registration).getUserDAO().registerUser(user)
+
+                        //switching to main thread
+                        withContext(Main){
+
+                            Toast.makeText(this@Registration, "Saved", Toast.LENGTH_SHORT).show()
+                        }
 
 
+                    }
+                }
 
+            }
         }
     }
+
+
+
 
     private fun checkEmpty(): Boolean {
         var flag = true
