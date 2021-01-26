@@ -4,11 +4,12 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.sakriya.week7.adapter.Student
-import com.sakriya.week7.model.Student
+
 
 class StudentAdapter(val lstStudent: ArrayList<Student>,val context: Context) :
     RecyclerView.Adapter<StudentAdapter.StudentViewHolder>() {
@@ -20,7 +21,8 @@ class StudentAdapter(val lstStudent: ArrayList<Student>,val context: Context) :
         val tvAge: TextView
         val tvAddress: TextView
         val tvGender: TextView
-        val ivDelete: ImageView
+        val ivDelete: ImageButton
+//        val update : ImageView
 
         init {
 

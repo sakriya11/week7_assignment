@@ -5,10 +5,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.sakriya.week7.dao.userDAO
-import com.sakriya.week7.entity.user
+import com.sakriya.week7.entity.User
+
 
 @Database(
-    entities = [(user::class)], //class haru add garne eta
+    entities = [(User::class)], //class haru add garne eta
     version = 1
 )
 abstract class StudentDB : RoomDatabase(){

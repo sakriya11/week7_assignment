@@ -9,8 +9,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.sakriya.week7.db.StudentDB
 import com.sakriya.week7.entity.User
-import com.sakriya.week7.entity.user
-import com.sakriya.week7.model.User
+
 import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.Main
 import kotlin.coroutines.coroutineContext
@@ -36,35 +35,40 @@ class Registration : AppCompatActivity() {
         btnAdd = findViewById(R.id.btnAdd)
 
         btnAdd.setOnClickListener {
-            if (checkEmpty()){
-                val fname = etName.text.toString()
-                val username = etUserName.text.toString()
-                val password = etPassword.text.toString()
-                val conformPassword = etPass2.text.toString()
 
-                if (password != conformPassword){
-                    etPassword.error = "Password did not match"
-                    etPassword.requestFocus()
-                    return@setOnClickListener
-                }
-                else{
+            Register()
+        }
+    }
 
-                    val user = User (fullName,Username,Password)
-                    CoroutineScope() {Dispatchers.IO}.launch{
+    private fun Register(){
+        if (checkEmpty()){
+            val fname = etName.text.toString()
+            val username = etUserName.text.toString()
+            val password = etPassword.text.toString()
+            val conformPassword = etPass2.text.toString()
 
-                        StudentDB.getInstance(this@Registration).getUserDAO().registerUser(user)
-
-                        //switching to main thread
-                        withContext(Main){
-
-                            Toast.makeText(this@Registration, "Saved", Toast.LENGTH_SHORT).show()
-                        }
-
-
-                    }
-                }
+            if (password != conformPassword){
+                etPassword.error = "Password did not match"
+                etPassword.requestFocus()
 
             }
+            else{
+
+                val user = User (fname,username,password)
+                CoroutineScope(Dispatchers.IO).launch{
+
+                    StudentDB.getInstance(this@Registration).getUserDAO().registerUser(user)
+
+                    //switching to main thread
+                    withContext(Main){
+
+                        Toast.makeText(this@Registration, "Saved", Toast.LENGTH_SHORT).show()
+                    }
+
+
+                }
+            }
+
         }
     }
 

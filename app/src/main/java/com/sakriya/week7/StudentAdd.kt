@@ -7,9 +7,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioGroup
 import android.widget.Toast
-import com.sakriya.week7.adapter.Student
-import com.sakriya.week7.model.Student
-import com.sakriya.week7.lstStudent
+
+
 class StudentAdd : AppCompatActivity() {
 
     private lateinit var etFname: EditText
